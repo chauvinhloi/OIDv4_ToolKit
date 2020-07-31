@@ -13,9 +13,13 @@ for DIR in DIRS:
     if os.path.isdir(DATASET_PATH):
         print('Processing dataset %s' % DIR.upper())
 
-        DEST_DATASET = os.path.join(os.getcwd(), 'OID/Dataset/%s' % DIR)
+        DEST_DATASET = os.path.join(
+            os.getcwd(), 'OID/Dataset/%s' % DIR)
 
         if not os.path.exists(DEST_DATASET):
+            os.mkdir(DEST_DATASET)
+            DEST_DATASET = os.path.join(
+                os.getcwd(), 'OID/Dataset/%s/AllClasses' % DIR)
             os.mkdir(DEST_DATASET)
             os.mkdir(os.path.join(DEST_DATASET, 'Label'))
 

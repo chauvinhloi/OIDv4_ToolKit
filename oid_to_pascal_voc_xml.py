@@ -97,7 +97,7 @@ for DIR in DIRS:
                         # Labels from OIDv4 Toolkit: name_of_class X_min Y_min X_max Y_max
                         for line in label_original:
                             line = line.strip()
-                            l = line.split(' ')
+                            l = line.split(',')
                             
                             class_name_len = len(l) - 4 # 4 coordinates
                             class_name = l[0]
