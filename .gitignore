@@ -1,3 +1,4 @@
 .DS_Store
 *.jpg
 Download/*/*/*.txt
+OID/Dataset/*/Label/*.txt
