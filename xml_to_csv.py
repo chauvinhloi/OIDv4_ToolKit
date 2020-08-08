@@ -2,11 +2,12 @@ import os
 import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
+from tqdm import tqdm
 
 
 def xml_to_csv(path):
     xml_list = []
-    for xml_file in glob.glob(path + '/*.xml'):
+    for xml_file in tqdm(glob.glob(path + '/*.xml')):
         tree = ET.parse(xml_file)
         root = tree.getroot()
         for member in root.findall('object'):
@@ -27,10 +28,11 @@ def xml_to_csv(path):
 
 
 def main():
-    for folder in ['train', 'test']:
-        image_path = os.path.join(os.getcwd(), ('images/' + folder))
-        xml_df = xml_to_csv(image_path)
-        xml_df.to_csv(('images/'+folder+'_labels.csv'), index=None)
+    for folder in ['OID/Dataset/train', 'OID/Dataset/validation']:
+        print('Processing dataset %s' % folder.upper())
+        xml_path = os.path.join(os.getcwd(), folder + '/AllClasses/labels')
+        xml_df = xml_to_csv(xml_path)
+        xml_df.to_csv(('./' + folder + '_labels.csv'), index=None)
     print('Successfully converted xml to csv.')
 
 
