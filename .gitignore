@@ -3,3 +3,6 @@
 Download/*/*/*.txt
 OID/Dataset/*/AllClasses/Label/*.txt
 *.xml
+*.pyc
+OID/Dataset/train/*/Label/*.txt
+*.csv
